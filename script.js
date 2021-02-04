@@ -1,4 +1,5 @@
 startGame();
+const button = document.querySelector("button");
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
@@ -12,7 +13,17 @@ function startGame() {
 }
 
 function rememberResult(e) {
-  console.log(e);
+  let player = "";
+  if (e.target == rock) {
+    console.log("ROCK - PLAYER");
+    player = "rock";
+  } else if (e.target == paper) {
+    console.log("PAPER - PLAYER");
+    player = "paper";
+  } else if (e.target == scissors) {
+    console.log("SCISSORS - PLAYER");
+    player = "scissors";
+  }
   computerDecision();
 }
 
@@ -27,16 +38,22 @@ function computerDecision(res) {
   } else if (random == 2) {
     computer = "scissors";
   }
-  // console.log(computer);
+  console.log(computer, "COMPUTER'S CHOICE");
 
-  compareResults(res);
+  // compareResults(res);
 }
 
-function compareResults(computer) {
-  console.log(computer, "k");
-  let result = " ";
-  // if ((computer == "rock") & (player == "rock")) {
-  //   result = "tie";
-  //   console.log("here");
-  // }
-}
+// function compareResults(r) {
+//   rememberResult();
+//   computerDecision();
+//   console.log("hey, how's it going", r)
+// }
+
+// function compareResults(computer) {
+//   console.log(computer, "hello");
+//   let result = " ";
+//   // if ((computer == "rock") & (player == "rock")) {
+//   //   result = "tie";
+//   //   console.log("here");
+//   // }
+// }
