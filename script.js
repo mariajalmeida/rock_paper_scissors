@@ -11,9 +11,8 @@ function startGame() {
   //   .querySelectorAll("#buttons button")
   //   .addEventListener("click", rememberResult);
 }
-
+let player = "";
 function rememberResult(e) {
-  let player = "";
   if (e.target == rock) {
     console.log("ROCK - PLAYER");
     player = "rock";
@@ -25,10 +24,11 @@ function rememberResult(e) {
     player = "scissors";
   }
   computerDecision();
+  compareResults(player);
 }
 
-function computerDecision(res) {
-  let computer = " ";
+let computer = "";
+function computerDecision() {
   let random = Math.floor(Math.random() * 3);
   // console.log(random);
   if (random == 0) {
@@ -40,14 +40,12 @@ function computerDecision(res) {
   }
   console.log(computer, "COMPUTER'S CHOICE");
 
-  // compareResults(res);
+  compareResults(random);
 }
 
-// function compareResults(r) {
-//   rememberResult();
-//   computerDecision();
-//   console.log("hey, how's it going", r)
-// }
+function compareResults(r) {
+  console.log("hey, here are the results", r)
+}
 
 // function compareResults(computer) {
 //   console.log(computer, "hello");
