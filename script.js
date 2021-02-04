@@ -24,7 +24,7 @@ function rememberResult(e) {
     player = "scissors";
   }
   computerDecision();
-  compareResults(player);
+  // compareResults(player);
 }
 
 let computer = "";
@@ -40,18 +40,24 @@ function computerDecision() {
   }
   console.log(computer, "COMPUTER'S CHOICE");
 
-  compareResults(random);
+  compareResults(computer);
 }
 
 function compareResults(r) {
-  console.log("hey, here are the results", r)
+  if (computer == player) {
+    console.log("it's a draw");
+  } else if (computer == "rock" & player == "paper") {
+    console.log("player wins");
+  } else if (computer == "paper" & player == "rock") {
+    console.log("player loses");
+  } else if (computer == "scissors" & player == "paper") {
+    console.log("player loses");
+  } else if (computer == "scissors" & player == "rock") {
+    console.log("player wins");
+   } else if (player == "scissors" & computer == "paper") {
+    console.log("player wins");
+   } else if (player == "scissors" & computer == "rock") {
+    console.log("player loses");
+   } 
+  
 }
-
-// function compareResults(computer) {
-//   console.log(computer, "hello");
-//   let result = " ";
-//   // if ((computer == "rock") & (player == "rock")) {
-//   //   result = "tie";
-//   //   console.log("here");
-//   // }
-// }
