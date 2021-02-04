@@ -31,9 +31,6 @@ function computerDecision(res) {
 
   compareResults(res);
 }
-// function addAnimation(){
-
-// }
 
 function compareResults(computer) {
   console.log(computer, "k");
