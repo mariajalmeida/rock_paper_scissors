@@ -1,16 +1,16 @@
-startGame();
+window.addEventListener("DOMContentLoaded", startGame);
+
 const button = document.querySelector("button");
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
+
 function startGame() {
   document.querySelector(".rock").addEventListener("click", rememberResult);
   document.querySelector(".paper").addEventListener("click", rememberResult);
   document.querySelector(".scissors").addEventListener("click", rememberResult);
-  // document
-  //   .querySelectorAll("#buttons button")
-  //   .addEventListener("click", rememberResult);
 }
+
 let player = "";
 function rememberResult(e) {
   if (e.target == rock) {
@@ -23,8 +23,18 @@ function rememberResult(e) {
     console.log("SCISSORS - PLAYER");
     player = "scissors";
   }
-  computerDecision();
-  // compareResults(player);
+
+  setTimer();
+}
+
+function setTimer() {
+  console.log("HELLO")
+  const hand1 = document.querySelector("#player1");
+  const hand2 = document.querySelector("#player2");
+  hand1.classList.add("shake");
+  hand2.classList.add("shake");
+
+  setTimeout(computerDecision, 1800)
 }
 
 let computer = "";
@@ -63,35 +73,38 @@ function compareResults(r) {
   } else if (computer == "scissors" & player == "rock") {
     console.log("player wins");
     winner.classList.remove("hidden");
-   } else if (player == "scissors" & computer == "paper") {
+  } else if (player == "scissors" & computer == "paper") {
     console.log("player wins");
     winner.classList.remove("hidden");
-   } else if (player == "scissors" & computer == "rock") {
+  } else if (player == "scissors" & computer == "rock") {
     console.log("player loses");
     loser.classList.remove("hidden");
-   } 
+  }
 
-   const user = document.querySelector("#player1.player");
-   const handPaper = "url('hand_paper.png')";
-   const handRock = "url('hand_rock.png')";
-   const handScissors = "url('hand_scissors.png')";
-   if (player == "paper") {
-      user.style.backgroundImage = handPaper;
-      console.log("help");
-   } else if (player == "scissors") {
-      user.style.backgroundImage = handScissors;
-   } else if (player == "rock") {
-      user.style.backgroundImage = handRock;
- }
+  const user = document.querySelector("#player1.player");
+  const handPaper = "url('hand_paper.png')";
+  const handRock = "url('hand_rock.png')";
+  const handScissors = "url('hand_scissors.png')";
+  if (player == "paper") {
+    user.style.backgroundImage = handPaper;
+    console.log("help");
+  } else if (player == "scissors") {
+    user.style.backgroundImage = handScissors;
+  } else if (player == "rock") {
+    user.style.backgroundImage = handRock;
+  }
 
-const machine = document.querySelector("#player2.player");
- if (computer == "paper") {
-  machine.style.backgroundImage = handPaper;
-  console.log("help");
-} else if (computer == "scissors") {
-  machine.style.backgroundImage = handScissors;
-} else if (computer == "rock") {
-  machine.style.backgroundImage = handRock;
-}
-  
+  const machine = document.querySelector("#player2.player");
+  if (computer == "paper") {
+    machine.style.backgroundImage = handPaper;
+    console.log("help");
+  } else if (computer == "scissors") {
+    machine.style.backgroundImage = handScissors;
+  } else if (computer == "rock") {
+    machine.style.backgroundImage = handRock;
+  }
+
+  setTimeout( () => {
+    location.reload();
+  }, 4000);
 }
