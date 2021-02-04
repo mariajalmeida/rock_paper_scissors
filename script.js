@@ -54,32 +54,6 @@ function computerDecision() {
 }
 
 function compareResults(r) {
-  const loser = document.querySelector("#lose");
-  const winner = document.querySelector("#win");
-  const tie = document.querySelector("#draw");
-
-  if (computer == player) {
-    console.log("it's a draw");
-    tie.classList.remove("hidden");
-  } else if (computer == "rock" & player == "paper") {
-    console.log("player wins");
-    winner.classList.remove("hidden");
-  } else if (computer == "paper" & player == "rock") {
-    console.log("player loses");
-    loser.classList.remove("hidden");
-  } else if (computer == "scissors" & player == "paper") {
-    console.log("player loses");
-    loser.classList.remove("hidden");
-  } else if (computer == "scissors" & player == "rock") {
-    console.log("player wins");
-    winner.classList.remove("hidden");
-  } else if (player == "scissors" & computer == "paper") {
-    console.log("player wins");
-    winner.classList.remove("hidden");
-  } else if (player == "scissors" & computer == "rock") {
-    console.log("player loses");
-    loser.classList.remove("hidden");
-  }
 
   const user = document.querySelector("#player1.player");
   const handPaper = "url('hand_paper.png')";
@@ -87,7 +61,6 @@ function compareResults(r) {
   const handScissors = "url('hand_scissors.png')";
   if (player == "paper") {
     user.style.backgroundImage = handPaper;
-    console.log("help");
   } else if (player == "scissors") {
     user.style.backgroundImage = handScissors;
   } else if (player == "rock") {
@@ -103,6 +76,34 @@ function compareResults(r) {
   } else if (computer == "rock") {
     machine.style.backgroundImage = handRock;
   }
+
+  const loser = document.querySelector("#lose");
+  const winner = document.querySelector("#win");
+  const tie = document.querySelector("#draw");
+  setTimeout( () => {
+    if (computer == player) {
+      console.log("it's a draw");
+      tie.classList.remove("hidden");
+    } else if (computer == "rock" & player == "paper") {
+      console.log("player wins");
+      winner.classList.remove("hidden");
+    } else if (computer == "paper" & player == "rock") {
+      console.log("player loses");
+      loser.classList.remove("hidden");
+    } else if (computer == "scissors" & player == "paper") {
+      console.log("player loses");
+      loser.classList.remove("hidden");
+    } else if (computer == "scissors" & player == "rock") {
+      console.log("player wins");
+      winner.classList.remove("hidden");
+    } else if (player == "scissors" & computer == "paper") {
+      console.log("player wins");
+      winner.classList.remove("hidden");
+    } else if (player == "scissors" & computer == "rock") {
+      console.log("player loses");
+      loser.classList.remove("hidden");
+    }
+  }, 300);
 
   setTimeout( () => {
     location.reload();
